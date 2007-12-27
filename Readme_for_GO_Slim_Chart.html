@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+                                 
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Readme for MGI GO_Slim Chart Tool</title>
+</head>
+  <body>
+       
+<h1>Readme: MGI GO_Slim Chart Tool</h1>
+   
+<p><font size="+1">This GO_Slim Chart Tool bins the genes in your list and,
+ for comparison, all annotated MGI genes, according to <a href="MGI_GO_Slim.html">
+    MGI GO Slim definitions</a>
+    to help you discover what your genes may have in common.</font></p>
+       
+<ul>
+      <li><a href="#background"><big>Background and description</big></a>
+      </li>
+      <li><a href="#query"><big>Query page</big></a>
+      </li>
+      <li><a href="#result"><big>Explanation of results</big></a>
+        <big><br>
+        </big></li>
+      <li><a href="#sample"><big>Sample genes file and results page</big></a>
+      </li>
+       
+</ul>
+       
+<h2><a name="background"></a>
+     Background and Description</h2>
+       
+<blockquote>            
+  <p>The Gene Ontology (GO) project was established to  provide a common language
+ to describe aspects of a gene product's biology.  A gene product's biology
+ is represented by three independent structured, controlled vocabularies:
+   molecular function, biological process and cellular component.  For more
+  information on GO, see the <a href="http://www.geneontology.org">GO consortium
+  home page</a>
+        .   </p>
+               
+  <p> To provide the most detailed information available, gene products are 
+     annotated to the most granular GO term(s) possible. For example, if a
+ gene   product is localized to the <b>perinuclear space</b>, it will be annotated
+    to that specific term only and not the parent term <b>nucleus</b> . In
+this    example the term <b> perinuclear space</b> is a child of <b> nucleus</b>
+     .    However, for many purposes, such as analyzing the results of microarray
+   expression data, it is very useful to "calculate" on GO, moving up the
+GO   tree from the specific terms used to annotate the genes in a list to
+find   GO parent terms that the genes may have in common.  The GO Term Finder
+tool   allows you to do this. </p>
+      </blockquote>
+               
+  <h2><a name="query"></a>
+     Query Page</h2>
+               
+  <blockquote>    The <a href="MGI_GO_Slim_Chart.html">
+         query page</a>
+           allows you to enter the list of gene names and select the ontology 
+  that   you want to search.                               
+    <ol>
+          <li><b>Enter gene names:</b><br>
+           You can either type the name of the genes in the input box or
+upload    a  file  that contains the genes names.  Note that a long (more
+than 100   genes)  list of genes might take awhile to return your results.
+      </li>
+          <li><b>Choose ontology:</b><br>
+           Select one of the three (biological process, molecular function, 
+ or  cellular   component) ontologies by checking the boxes. This tool is 
+designed  to search   only one of the three ontologies at a given time in 
+order to minimize the   searching time.  </li>
+          <li><b>Indicate whether to include IEAs</b>:&nbsp;The IEA code, 
+        <b>   I</b>     nferred from <b>E</b>lectronic <b>A</b>nnotation, 
+means no human  involvement   in the assignment of the association and is 
+thus lowest quality  evidence  code. IEA is the only code currently in use 
+that does not require  human judgement   during the curation process. Also 
+see the <a href="http://www.geneontology.org/doc/GO.evidence.html">      
+ GO evidence code</a>
+          documentation.&nbsp;</li>
+          <li>Click the <b>Search</b> button.</li>
+                       
+    </ol>
+        </blockquote>
+                       
+    <h2><a name="result"></a>
+     Results</h2>
+                       
+    <blockquote>The results page displays in table form, the distribution
+  of genes in pre-defined bins (see <a href="MGI_GO_Slim.html">
+   MGI GO_Slim definitions</a>
+   ) and a comparison with the overall distribution of all MGI annotated
+genes.  The results page also shows the ontology and annoatation versions
+used.<br>
+          </blockquote>
+                               
+      <h2><a name="sample"></a>
+     Sample genes file and results page</h2>
+                               
+      <blockquote>                                    
+        <ol>
+              <li>To download a sample text file of genes identified by MGI 
+ accession  ID, click <a href="sample.txt">
+   here</a>
+    . This file can be submitted to MGI GO_Slim Chart tool.</li>
+              <li>To view a sample results page with explanation of results,
+ click  <a href="sample_results.txt">
+ here</a>
+ .</li>
+              <li>To view sample results as an Excel spreadsheet, with chart
+ created  in Excel, click <a href="sample_results_excel.jpg">
+here</a>
+.</li>
+                                       
+        </ol>
+            </blockquote>
+                                       
+        <p><i> This page is adapted from the  <a href="http://www.yeastgenome.org/help/goTermFinder.html">
+        help page</a>
+          at SMD.&nbsp; </i></p>
+                                       
+        </body>
+        </html>

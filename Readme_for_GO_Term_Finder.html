@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+                         
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Readme for GO Term Finder</title>
+</head>
+  <body>
+       
+<h1>Readme: MGI GO Term Finder</h1>
+     
+<p></p>
+   
+<blockquote>      
+  <p><font size="+1">This GO Term Finder tool searches for significant shared 
+ GO terms, or parents of the GO terms, used to describe the genes in your 
+list to help you discover what the genes may have in common.</font></p>
+    </blockquote>
+       
+  <ul>
+      <li><a href="#background"><big>Background and description</big></a>
+      </li>
+      <li><a href="#query"><big> Query page</big></a>
+      </li>
+      <li><a href="#results"><big>Explanation of results</big></a>
+        <big><br>
+        </big></li>
+      <li><a href="#sample"><big>Sample genes file and results page</big></a>
+      </li>
+      <li><a href="#method"><big>Method/Algoritm description</big><i> </i></a>
+        <i>(Description of algorithm due to Gavin Sherlock at  <a href="http://genome-www5.stanford.edu//">
+      SMD</a>
+  .)</i></li>
+       
+  </ul>
+       
+  <p></p>
+           
+  <h2><a name="background"></a>
+  Background and Description</h2>
+           
+  <p>The Gene Ontology (GO) project was established to  provide a common
+language   to describe aspects of a gene product's biology.  A gene product's
+biology   is represented by three independent structured, controlled vocabularies:
+  molecular function, biological process and cellular component.  For more
+ information on GO, see the <a href="http://www.geneontology.org">GO consortium
+ home page</a>
+      .   </p>
+           
+  <p> To provide the most detailed information available, gene products are 
+    annotated to the most granular GO term(s) possible. For example, if a 
+gene   product is localized to the <b>perinuclear space</b>, it will be annotated
+    to that specific term only and not the parent term <b>nucleus</b>. In
+this    example the term <b> perinuclear space</b> is a child of <b>nucleus</b>
+    .    However, for many purposes, such as analyzing the results of microarray
+   expression data, it is very useful to "calculate" on GO, moving up the
+GO   tree from the specific terms used to annotate the genes in a list to
+find   GO parent terms that the genes may have in common.  The GO Term Finder
+tool   allows you to do this. </p>
+           
+  <h2><a name="query"></a>
+  Query Page</h2>
+       The <a href="MGI_Term_Finder.html">
+       query page</a>
+         allows you to enter the list of gene names and select the ontology 
+ that   you want to search.             
+  <ol>
+      <li><b>Enter gene names:</b><br>
+         You can either type the name of the genes in the input box or upload 
+  a  file  that contains the genes names.  Note that a long (more than 100 
+ genes)  list of genes might take awhile to return your results. </li>
+      <li><b>Choose ontology:</b><br>
+         Select one of the three (biological process, molecular function, 
+or  cellular   component) ontologies by checking the boxes. This tool is designed
+ to search   only one of the three ontologies at a given time in order to
+minimize the   searching time.  </li>
+      <li><b>Indicate whether to include IEAs</b>:&nbsp;The IEA code, <b>
+I</b>       nferred from <b>E</b>lectronic <b>A</b>nnotation, means no human
+involvement    in the assignment of the association and is thus lowest quality
+evidence   code. IEA is the only code currently in use that does not require
+human judgement   during the curation process. Also see the <a href="http://www.geneontology.org/doc/GO.evidence.html">
+       GO evidence code</a>
+        documentation.&nbsp;</li>
+      <li>Click the <b>Search</b> button.  </li>
+           
+  </ol>
+           
+  <h2><a name="results">Results</a>
+    </h2>
+    <a name="results">The results page displays in table form, the shared 
+GO  terms (or parents of GO terms) used to describe the set of genes.</a>
+        The table lists each GO term, the number of times the GO term  is 
+used   to annotate genes in the list (or cluster) and the number of times 
+ that  the term is used to annotate genes in the entire genome.  In addition, 
+ the  p-value is provided as well as all the genes annotated, either directly
+  or indirectly, to the term.<br>
+       
+  <h2><a name="sample"></a>
+  Sample genes file and results page</h2>
+       
+  <blockquote>          
+    <ol>
+        <li>To download a sample text file of genes identified by MGI   accession
+  ID, click <a href="sample.txt">
+   here</a>
+       . This file can be submitted to MGI GO_Slim Chart tool.</li>
+        <li>To view a sample results page with explanation of results,  click
+  <a href="sample_results_TF.html">
+  here</a>
+    .</li>
+        <li>To view sample results as an Excel spreadsheet, with chart  created
+  in Excel, click <a href="sample_results_excel_TF.jpg">
+   here</a>
+   .</li>
+           
+    </ol>
+      </blockquote>
+                     
+    <h2><a name="method"></a>
+  Method/Algorithm Description</h2>
+               
+    <blockquote>Genes are directly associated with GO terms that are as granular
+   as possible.  Because the GO terms have structural relationships  with
+each   other, genes are also considered to be indirectly associated with
+ all the   parents of the granular terms to which they are directly associated.
+                              
+      <p>The tool looks for significant shared GO terms that are directly
+ or indirectly associated with the genes in the list.  To determine  significance,
+ the algorithm examines the group of genes to find GO terms  to which a high
+ proportion of the genes are associated compared to the number  of times
+that  term is associated with other genes in the genome.  For example,  when
+searching  the process ontology, if all of the genes in the group were  associated
+with  "DNA repair", this term would be significant. However, since  all genes
+in  the genome (with GO annotations) are indirectly associated with  the
+top level term "biological_process", it would not be significant if all 
+the genes in the group were associated with this very high level term.  </p>
+      </blockquote>
+                       
+      <h4>Algorithm Details:</h4>
+                       
+      <div class="Section1">                    
+      <blockquote>                            
+        <p class="MsoBodyText" style="text-indent: 0.5in; "><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;; ">
+    The GoTermFinder attempts to determine whether an observed level of annotation
+  for a group of genes is significant within the context of annotation for
+ all genes within the genome.<span style="mso-spacerun: yes">&nbsp; </span>
+   Suppose that we have a total population of N genes, in which M have a
+particular  annotation.<span style="mso-spacerun: yes"> &nbsp; </span>If
+we observe x  genes with that annotation, in a sample of n genes, then we
+can calculate  the probability of that observation, using the hypergeometric
+distribution  (eg, see <a href="http://mathworld.wolfram.com/HypergeometricDistribution.html">
+    http://mathworld.wolfram.com/HypergeometricDistribution.html</a>
+    ) as:<o:p></o:p></span></p>
+        </blockquote>
+                               
+        <p class="MsoBodyText" style="text-indent: 0.5in; "><span style="font-size: 12pt; font-family: Arial; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                               
+        <p class="MsoBodyText" align="Center" style="text-align: center; text-indent: 0.5in; "><span style="font-size: 12pt; font-family: Arial; "><sub><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:201.75pt;
+ height:165.75pt' o:ole="">
+ <v:imagedata src="GoTermFinder_help_files/image001.wmz" o:althref="./GoTermFinder_help_files/image002.pcz"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img border="0" width="269" height="221" src="GoTermFinder_help_files/image003.gif" v:shapes="_x0000_i1025">
+    <!--[endif]--></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1025"
+  DrawAspect="Content" ObjectID="_1119347382">
+ </o:OLEObject>
+</xml><![endif]--><o:p></o:p></span></p>
+                               
+        <blockquote>                                    
+          <p class="MsoBodyText"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;; ">
+    where generically, :</span><span style="font-size: 12pt; font-family: Arial; "><o:p></o:p></span></p>
+          </blockquote>
+                                       
+          <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                       
+          <p class="MsoBodyText" align="Center" style="text-align: center; "><span style="font-size: 12pt; font-family: Arial; "><sub><!--[if gte vml 1]><v:shape id="_x0000_i1030" type="#_x0000_t75"
+ style='width:42.75pt;height:79.5pt' o:ole="">
+ <v:imagedata src="GoTermFinder_help_files/image004.wmz" o:althref="./GoTermFinder_help_files/image005.pcz"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img border="0" width="57" height="106" src="GoTermFinder_help_files/image006.gif" v:shapes="_x0000_i1030">
+    <!--[endif]--></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1030"
+  DrawAspect="Content" ObjectID="_1119347383">
+ </o:OLEObject>
+</xml><![endif]--><o:p></o:p></span></p>
+                                       
+          <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                       
+          <blockquote>                                            
+            <p class="MsoBodyText"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;; ">
+    which is the number of permutations by which r entities can be selected 
+ from n entities, is calculated as:</span><span style="font-size: 12pt; font-family: Arial; "><o:p></o:p></span></p>
+            </blockquote>
+                                               
+            <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                               
+            <p class="MsoBodyText" align="Center" style="text-align: center; "><span style="font-size: 12pt; font-family: Arial; "><sub><!--[if gte vml 1]><v:shape id="_x0000_i1031" type="#_x0000_t75"
+ style='width:108pt;height:1in' o:ole="">
+ <v:imagedata src="GoTermFinder_help_files/image007.wmz" o:althref="./GoTermFinder_help_files/image008.pcz"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img border="0" width="144" height="96" src="GoTermFinder_help_files/image009.gif" v:shapes="_x0000_i1031">
+    <!--[endif]--></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1031"
+  DrawAspect="Content" ObjectID="_1119347384">
+ </o:OLEObject>
+</xml><![endif]--><o:p></o:p></span></p>
+                                               
+            <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                               
+            <blockquote>                                                
+   
+              <p class="MsoBodyText"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;; ">
+    To actually generate a p-value, rather than a simple probability, instead
+  of asking the question, what is the probability of having 5 out of 10 genes
+  with this annotation, given that 42 out 30,000 have it, we ask the question
+  what is the probability of having 5 or more out of 10 genes having this
+annotation.<span style="mso-spacerun: yes">   </span></span></p>
+                                           
+              <p class="MsoBodyText"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;; ">
+   This is what a p-value is &#8211; the chance of seeing your observation, or
+better,  given the background distribution.<span style="mso-spacerun: yes">
+ &nbsp;            </span>We calculate this by summing our probabilities
+for 5 out  of 10, 6 out of 10, 7 out of 10 etc.<span style="mso-spacerun: yes">
+&nbsp;            </span> Thus the probability of seeing x or more genes
+with an annotation, out n, given that M in the population of N have that
+annotation, is:</span><span style="font-size: 12pt; font-family: Arial; "><o:p></o:p></span></p>
+              </blockquote>
+                                                       
+              <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                                       
+              <p class="MsoBodyText" align="Center" style="text-align: center; "><span style="font-size: 12pt; font-family: Arial; "><sub><!--[if gte vml 1]><v:shape id="_x0000_i1032" type="#_x0000_t75"
+ style='width:264pt;height:132pt' o:ole="">
+ <v:imagedata src="GoTermFinder_help_files/image010.wmz" o:althref="./GoTermFinder_help_files/image011.pcz"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img border="0" width="352" height="176" src="GoTermFinder_help_files/image012.gif" v:shapes="_x0000_i1032">
+    <!--[endif]--></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1032"
+  DrawAspect="Content" ObjectID="_1119347385">
+ </o:OLEObject>
+</xml><![endif]--><o:p></o:p></span></p>
+                                                       
+              <p class="MsoBodyText"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                                       
+              <blockquote>                                              
+             
+                <p class="MsoBodyText"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;; ">
+    Note that this is the same as saying what&#8217;s the chance of getting at
+least   x successes, and can also be represented by:</span><span style="font-size: 12pt; font-family: Arial; "><o:p></o:p></span></p>
+                </blockquote>
+                                                               
+                <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                                               
+                <p class="MsoBodyText" align="Center" style="text-align: center; "><span style="font-family: Arial; "><sub><!--[if gte vml 1]><v:shape
+ id="_x0000_i1033" type="#_x0000_t75" style='width:270.75pt;height:123pt'
+ o:ole="">
+ <v:imagedata src="GoTermFinder_help_files/image013.wmz" o:althref="./GoTermFinder_help_files/image014.pcz"
+  o:title=""/>
+</v:shape><![endif]--><!--[if !vml]--><img border="0" width="361" height="164" src="GoTermFinder_help_files/image015.gif" v:shapes="_x0000_i1033">
+    <!--[endif]--></sub><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Equation.3" ShapeID="_x0000_i1033"
+  DrawAspect="Content" ObjectID="_1119347386">
+ </o:OLEObject>
+</xml><![endif]--></span><span style="font-size: 12pt; font-family: Arial; "><o:p></o:p></span></p>
+                                                               
+                <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                                               
+                <blockquote>                                             
+                      
+                  <p class="MsoBodyText"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;; ">
+    Typically, a cut-off for p-values, known as the alpha level, is chosen, 
+ such that p-values below the alpha level are deemed significant. The alpha 
+ level is the chance taken by researchers to make a type one error. The type 
+ one error is the error of incorrectly declaring a difference, effect or relationship
+ to be true due to chance producing a particular state of events. Customarily
+ the alpha level is set at 0.05, or, in no more than one in twenty statistical
+ tests the test will show 'something' while in fact there is nothing. In
+the  case of more than one statistical test the chance of finding at least
+one  test statistically significant due to chance fluctuation, and to incorrectly
+ declare a difference or relationship to be true, increases. In five tests
+ the chance of finding at least one difference or relationship significant
+ due to chance fluctuation equals 0.22, or one in five. In ten tests this
+chance increases to 0.40, which is about one in two.<span style="mso-spacerun: yes">
+    &nbsp; </span>Thus we need to make an adjustment that will correct for
+ multiple  hypotheses.<span style="mso-spacerun: yes">&nbsp; </span></span></p>
+                                                                       
+                  <p class="MsoBodyText"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;; ">
+    The Bonferroni method adjusts the alpha level of each individual test 
+downwards  to ensure that the overall risk for a number of tests remains 0.05.
+Even if more than one test is done the risk of finding a difference or effect
+incorrectly significant continues to be 0.05.<span style="mso-spacerun: yes">
+   &nbsp;               </span>To do this, it simply divides the alpha-level
+ by the number hypotheses that were tested, so if 20 hypotheses were tested,
+ then instead of using an alpha-level of 0.05, an alpha level of 0.0025 would
+ be used.<span style="mso-spacerun:
+yes"> &nbsp; </span>Alternatively, the
+ p-values can be adjusted, by multiplying by the number of hypotheses that
+ were tested, and the alpha-level can be kept the same.<span style="mso-spacerun: yes">
+   &nbsp; </span>This approach is the one that MGI&#8217;s GOTermFinder takes.<span style="mso-spacerun: yes">
+    &nbsp; </span>The Bonferroni correction assumes however that all hypotheses
+  are independent.<span style="mso-spacerun: yes">&nbsp; </span>In the case
+  of the GOTermFinder, each hypothesis is a node in the Gene Ontology, which
+  has two or more annotations (either directly or indirectly) from the tested
+  group of genes.<span style="mso-spacerun: yes">&nbsp; </span>Because these
+  hypotheses form a Directed Acyclic Graph (which is a subgraph of the full
+  GO DAG) there are thus relationships between the hypotheses.<span style="mso-spacerun: yes">
+    &nbsp; </span>Thus instead of multiplying the generated p-values by the 
+ number of tested hypotheses, they are multiplied by the number of hypotheses 
+ that exist in the following set: the set of hypotheses from which all other 
+ hypotheses can be inferred.<o:p></o:p></span></p>
+                  </blockquote>
+                                                                       
+                  <p class="MsoBodyText"><!--[if gte vml 1]><v:shapetype id="_x0000_t202"
+ coordsize="21600,21600" o:spt="202" path="m0,0l0,21600,21600,21600,21600,0xe">
+ <v:stroke joinstyle="miter"/>
+ <v:path gradientshapeok="t" o:connecttype="rect"/>
+</v:shapetype><v:shape id="_x0000_s1027" type="#_x0000_t202" style='position:absolute;
+ margin-left:140.05pt;margin-top:87.2pt;width:135pt;height:45pt;z-index:1;
+ mso-position-horizontal:absolute;mso-position-vertical:absolute'>
+ <v:textbox>
+  <![if !mso]>
+  <table cellpadding=0 cellspacing=0 width="100%">
+   <tr>
+    <td><![endif]>
+    <div>
+    <p class=MsoNormal>Node B</p>
+    <p class=MsoNormal>2 direct annotations</p>
+    </div>
+    <![if !mso]></td>
+   </tr>
+  </table>
+  <![endif]></v:textbox>
+</v:shape><v:shape id="_x0000_s1028" type="#_x0000_t202" style='position:absolute;
+ margin-left:347.05pt;margin-top:87.2pt;width:126pt;height:45pt;z-index:2;
+ mso-position-horizontal:absolute;mso-position-vertical:absolute'>
+ <v:textbox>
+  <![if !mso]>
+  <table cellpadding=0 cellspacing=0 width="100%">
+   <tr>
+    <td><![endif]>
+    <div>
+    <p class=MsoNormal>Node C</p>
+    <p class=MsoNormal>2 direct annotations</p>
+    </div>
+    <![if !mso]></td>
+   </tr>
+  </table>
+  <![endif]></v:textbox>
+</v:shape><v:shape id="_x0000_s1029" type="#_x0000_t202" style='position:absolute;
+ margin-left:239.05pt;margin-top:12.25pt;width:126pt;height:53.95pt;z-index:3;
+ mso-position-horizontal:absolute;mso-position-vertical:absolute'>
+ <v:textbox>
+  <![if !mso]>
+  <table cellpadding=0 cellspacing=0 width="100%">
+   <tr>
+    <td><![endif]>
+    <div>
+    <p class=MsoNormal>Node A</p>
+    <p class=MsoNormal>No direct annotations</p>
+    <p class=MsoNormal>4 <i>inferred</i> annotations</p>
+    </div>
+    <![if !mso]></td>
+   </tr>
+  </table>
+  <![endif]></v:textbox>
+</v:shape><v:line id="_x0000_s1030" style='position:absolute;flip:x;z-index:4'
+ from="194.05pt,61.75pt" to="293.05pt,91.75pt" coordsize="21600,21600">
+ <v:stroke endarrow="block"/>
+</v:line><v:line id="_x0000_s1031" style='position:absolute;z-index:5' from="311.05pt,61.75pt"
+ to="410.05pt,91.75pt" coordsize="21600,21600">
+ <v:stroke endarrow="block"/>
+</v:line><![endif]--><!--[if !vml]--><span style="mso-ignore:vglayout">
+                                                                       
+                  <table cellpadding="0" cellspacing="0" align="Left">
+                    <tbody>
+                      <tr>
+                        <td width="187" height="16"><br>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><br>
+                        </td>
+                        <td><img width="447" height="163" src="GoTermFinder_help_files/image016.gif" v:shapes="_x0000_s1027 _x0000_s1028 _x0000_s1029 _x0000_s1030 _x0000_s1031">
+                        </td>
+                      </tr>
+                                                                        
+      
+                    </tbody>                                             
+                      
+                  </table>
+                  </span><!--[endif]--><span style="font-size: 12pt; font-family: Arial; color: black; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                                                       
+                  <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; color: black; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                                                       
+                  <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; color: black; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                                                       
+                  <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; color: black; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                                                       
+                  <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; color: black; "><!--[if !supportEmptyParas]-->
+    &nbsp;<!--[endif]--><o:p></o:p></span></p>
+                                                                       
+                  <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; color: black; "><!--[if !supportEmptyParas]-->
+     <o:p></o:p></span></p>
+                                                                       
+                  <p class="MsoBodyText"><span style="font-size: 12pt; font-family: Arial; color: black; "><!--[if !supportEmptyParas]--><o:p></o:p></span></p>
+                                                                       
+                  <p class="MsoBodyText"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;; "><!--[if !supportEmptyParas]--><!--[endif]--><o:p></o:p></span></p>
+                  <br style="mso-ignore:vglayout" clear="All">
+                                                                       
+                  <blockquote>                                           
+                                
+                    <p class="MsoBodyText"><span style="font-size: 12pt; font-family: &quot;Times New Roman&quot;; ">
+    Eg Imagine Nodes B and C have two annotations each, and that Node A is
+ a  parent of both, and has no direct annotations. <span style="mso-spacerun: yes"></span>
+    Simply by knowing about the number of annotations to B and C, and that
+ A  is their parent, we can infer the number of annotations on A, which is
+ 4 indirect annotations.<span style="mso-spacerun:
+yes">&nbsp; </span>Thus
+ our correction factor would be 2, not 3, as we only need to know about annotations
+ to B and C to predict all our hypotheses that we will test.</span><span style="font-size: 12pt; font-family: Arial; "><o:p></o:p></span></p>
+                    </blockquote>
+                    </div>
+                    <br>
+                                                                        
+      
+                    <blockquote>                                         
+                                          
+                      <blockquote></blockquote>
+                        </blockquote>
+                                                                        
+                      
+                        </body>
+                        </html>

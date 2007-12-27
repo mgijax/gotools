@@ -1,0 +1,27 @@
+Ontology version
+!date:                 Wed Aug 06 11:46:23 BST 2003
+!version: $Revision$
+Annotations version
+!software version: $Revision$
+!date: 08/05/2003 $
+
+Any warnings will be listed here:
+
+Results for Biological Process Bins: 
+Process				Count	Percentage	All MGI
+cell adhesion            	    0	0.00000		  284	0.02020
+cell-cell signaling      	    0	0.00000		  133	0.00946
+cell cycle and proliferat	   23	0.29487		  379	0.02696
+death                    	    3	0.03846		  193	0.01373
+cell organization and bio	    0	0.00000		  460	0.03272
+protein metabolism       	    8	0.10256		 1182	0.08407
+DNA metabolism           	   78	1.00000		  239	0.01700
+RNA metabolism           	    9	0.11538		 1012	0.07198
+other metabolic processes	    0	0.00000		 1717	0.12212
+stress response          	   78	1.00000		  328	0.02333
+transport                	    4	0.05128		 1021	0.07262
+developmental processes  	    2	0.02564		  862	0.06131
+signal transduction      	    2	0.02564		 1131	0.08044
+other biological processe	    0	0.00000		 2641	0.18784
+all biological processes 	   78	1.00000		14060	1.00000
+

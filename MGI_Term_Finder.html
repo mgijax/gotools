@@ -1,0 +1,53 @@
+<head>
+<title>MGI Gene Ontology Term Finder</title>
+</head>
+
+<body>
+<h1>MGI Gene Ontology Term Finder</h1>
+
+<font size="+1">
+<p />This GO Term Finder tool searches for significant shared GO terms, or parents of the GO terms, used to describe the genes in your list to help you discover what the genes may have in common.</font>
+
+<form method="post" action="TermFinderClient.cgi" enctype="multipart/form-data">
+
+<p>
+<font color="red">Step 1:</font> Enter gene names*:<br />
+Input the gene names in the text box, as MGI:accID or gene symbol (with carriage returns)<br />
+<font color="red">or</font><br />
+Select a file of gene names, as MGI:accID or gene symbol (with carriage returns).
+<p>
+<textarea name="loci" rows=5 cols=50></textarea>
+<p>
+<input type="file" name="uploadfile"  />
+
+<p>
+<font color="red">Step 2:</font> Choose Ontology:<br />
+
+<input type="radio" name="ontology" value="process" checked="1" />Process<br />
+<input type="radio" name="ontology" value="function" />Function<br />
+<input type="radio" name="ontology" value="component" />Component<br />
+
+<p>
+<font color="red">Step 3:</font>  Indicate whether to exclude evidence
+code IEA (Inferred from Electronic Annotation):<br />
+<input type="radio" name="iea" value="include" checked="checked">Include IEAs<br>
+<input type="radio" name="iea" value="exclude">Exclude IEAs<br />
+
+
+<p><font color="red"> Step 4:</font>
+<input type="submit" name="Submit" value="Search">
+<input type="reset"></p>
+<p>
+
+</form>
+
+<p> Based on <a href="http://search.cpan.org/author/SHERLOCK/">TermFinder (0.8) implementation</a>
+   of Gavin Sherlock, <a href="http://genome-www5.stanford.edu/MicroArray/SMD/">
+  Stanford Microarray Database.</a>
+  <br>
+  View <a href="Readme_for_GO_Term_Finder.html">
+  Readme</a>
+   for a description of GO Term Finder.
+  <br>*Note: Server timeout likely for more than 2400 genes. Downloadable version will be available soon.
+  </body>
+  </html>

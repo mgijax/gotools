@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>MGI GO Slim</title>
+</head>
+<body>
+<h1>MGI GO Slim Categories</h1>
+<big>The MGI GO_Slim set is defined using unions and disjunctions of GO
+terms, so that the MGI GO_Slim cannot currently be used with the
+standard tools (e.g. map2slim script). However, a DAG-Edit readable
+file is available for download <a href="data/input/mgi_go_slim.go">here</a>.<br>
+<br>
+Tab-delimited file mapping GO_ids to MGI GO_Slim category available for
+download <a href="data/input/map2MGIslim.txt">here</a>.</big><big><br>
+File of genes symbols grouped by GO_id available for
+download <a href="data/input/MGIgenes_by_GOid.txt">here</a>.</big><br>
+<big><br>
+RULES</big><big><br>
+</big>
+<ul>
+  <li><big>"OR" means the union of the genes that are annotated to the
+terms</big></li>
+  <li><big>"EXCLUDING" means the union of all the genes annotated to
+the parent term and the other terms of that branch of the vocabulary,
+except
+the named term</big></li>
+</ul>
+<h3>
+<p><a href="#p">Biological Process</a> </p>
+<p><a href="#c">Cellular Component</a> </p>
+<a href="#f">Molecular Function</a> </h3>
+<hr width="100%" size="2">
+<h3><a name="p"></a> Biological Process</h3>
+<div style="margin-left: 40px;"> 1.) cell adhesion<br>
+GO:0007155<br>
+<br>
+2.) cell-cell signaling<br>
+GO:0007267<br>
+<br>
+3.) cell cycle and proliferation: cell cycle OR cell proliferation<br>
+GO:0007049/cell cycle<br>
+GO:0008283/cell proliferation<br>
+<br>
+4.) death<br>
+GO:0016265<br>
+<br>
+5.) cell organization and biogenesis<br>
+GO:0016043<br>
+<br>
+6.) protein metabolism<br>
+GO:0019538<br>
+<br>
+7.) DNA metabolism<br>
+GO:0006259<br>
+<br>
+8.) RNA metabolism: RNA metabolism OR transcription<br>
+GO:0016070/RNA metabolism<br>
+GO:0006350/transcription<br>
+<br>
+9.) other metabolic processes: metabolism EXCLUDING (DNA metabolism OR
+RNA metabolism OR protein metabolism)<br>
+GO:0008152<br>
+<br>
+10.) stress response<br>
+GO:0006950<br>
+<br>
+11.) transport<br>
+GO:0006810<br>
+<br>
+12.) developmental processes<br>
+GO:0007275<br>
+<br>
+13.) signal transduction<br>
+GO:0007165<br>
+<br>
+14.) unknown = <b>biological_process unknown</b><br>
+<b>GO:0000004</b><br>
+<br>
+14.) other biological processes: biological_process EXCLUDING (1-13)<br>
+GO:0008150<br>
+</div>
+<hr width="100%" size="2">
+<h3><a name="c"></a> Cellular Component</h3>
+<div style="margin-left: 40px;"> 1.)&nbsp;non-structural extracellular:
+extracellular region EXCLUDING extracellular matrix (sensu Metazoa)<br>
+GO:0005576<br>
+<br>
+2.) extracellular matrix (sensu Metazoa)<br>
+GO:0005578<br>
+<br>
+3.)&nbsp;plasma membrane <br>
+GO:0005886<br>
+<br>
+4.)&nbsp;other membranes: (membrane EXCLUDING plasma membrane) OR
+membrane fraction<br>
+GO:0016020/membrane<br>
+GO:0005624/membrane fraction<br>
+<br>
+5.) cytosol: cytosol OR (sarcoplasm EXCLUDING (sarcoplasmic reticulum
+OR junctional membrane complex))<br>
+GO:0005829/cytosol<br>
+GO:0016528/sarcoplasm<br>
+GO:0016529/sarcoplasmic reticulum<br>
+GO:0030314/junctional membrane complex<br>
+<br>
+6.) cytoskeleton: cytoskeleton OR microtubule organizing center OR
+spindle OR muscle fiber OR cilia OR flagellum (sensu Eukaryota)<br>
+GO:0005856/cytoskeleton<br>
+GO:0005815/microtubule organizing center<br>
+GO:0005819/spindle<br>
+GO:0030484/muscle fiber<br>
+GO:0009434/flagellum (sensu Eukaryota)<br>
+<br>
+7.) mitochondrion<br>
+GO:0005739<br>
+<br>
+8.)&nbsp;ER/Golgi: endoplasmic reticulum OR ER-Golgi intermediate
+compartment OR Golgi apparatus OR transport vesicle OR Golgi vesicle OR
+sarcoplasmic reticulum<br>
+GO:0005783/endoplasmic reticulum<br>
+GO:0005793/ER-Golgi intermediate compartment<br>
+GO:0005794/Golgi apparatus<br>
+GO:0030133/transport vesicle<br>
+GO:0005798/Golgi vesicle<br>
+GO:0016529/sarcoplasmic reticulum<br>
+<br>
+9.) translational apparatus: eukaryotic 43S pre-initiation complex OR
+eukaryotic 48S initiation complex OR eukaryotic translational
+initiation factor 2B
+complex OR eukaryotic translation initiation factor 4F complex OR
+nascent
+polypeptide-associated complex OR signal recognition particle (sensu
+Eukaryota) OR
+ribosome<br>
+GO:0016282/eukaryotic 43S pre-initiation complex<br>
+GO:0016283/eukaryotic 48S initiation complex<br>
+GO:0005851/eukaryotic translation initiation factor 2B complex<br>
+GO:0016281/eukaryotic translation initiation factor 4F complex<br>
+GO:0005854/nascent polypeptide-associated complex<br>
+GO:0005786/signal recognition particle (sensu Eukaryota)<br>
+GO:0005840/ribosome<br>
+<br>
+10.) nucleus<br>
+GO:0005634<br>
+<br>
+11.)other cytoplasmic organelle: acidocalcisome OR cytoplasmic exosome
+OR endosome OR glyoxysome OR lysosome OR peroxisome OR vacuole<br>
+GO:0020022/acidocalcisome<br>
+GO:0000177/cytoplasmic exosome (RNase complex)<br>
+GO:0005768/endosome<br>
+GO:0009514/glyoxysome<br>
+GO:0005764/lysosome<br>
+GO:0005777/peroxisome<br>
+GO:0005773/vacuole<br>
+<br>
+12.) unknown = <b>cellular_component unknown</b><br>
+<b>GO:0008372</b><br>
+<br>
+13.)&nbsp;other cell component: cellular_component EXCLUDING (1-12)<br>
+GO:0005575<br>
+</div>
+<br>
+<hr width="100%" size="2">
+<h3><a name="f"></a> Molecular Function</h3>
+<big>Tab-delimited file mapping MGI_ids (genes) to MGI GO_Slim function
+category available for download <a
+ href="data/input/MGIgenes2MGIGOSlim_Function.txt">here</a>.</big><br>
+<!--[endif]--><o:p></o:p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;"><!--[if !supportLists]--><span
+ style="">1)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><!--[endif]-->signal transduction activity= signal
+transducer
+activity <b>GO:0004871</b><span style="">&nbsp; </span>[or]
+receptor binding <b>GO:0005102<o:p></o:p></b></p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;"><!--[if !supportLists]-->2)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><!--[endif]-->transporter activity= transporter activity <b>GO:0005215</b></p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;"><!--[if !supportLists]-->3)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><!--[endif]-->enzyme regulator activity= enzyme regulator
+activity <b>GO:0030234</b></p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;"><!--[if !supportLists]-->4)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><!--[endif]-->extracellular structural activity= extracellular
+matrix
+structural constituent <b>GO:0005201</b></p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;"><!--[if !supportLists]-->5)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><!--[endif]-->bone, tooth or skin structural activity=structural
+constituent
+of bone <b>GO:0008147 </b>[or] structural constituent of tooth enamel
+<b>GO:0030345</b><span style=""> </span>[or] structural constituent of
+epidermis <b>GO:0030280</b></p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;"><!--[if !supportLists]-->6)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><!--[endif]-->cytoskeletal activity= structural constituent of
+cytoskeleton <b>GO:0005200
+</b>[or] cytoskeletal protein binding <b>GO:0008092</b> [or] motor
+activity <b>GO:0003774</b></p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;"><!--[if !supportLists]-->7)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><!--[endif]-->transcription regulatory activity= transcription
+regulator
+activity <b>GO:0030528</b></p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;"><!--[if !supportLists]-->8)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><!--[endif]-->translation activity= ribosomal large subunit
+binding <b>GO:0043023
+</b>[or] ribosomal small subunit binding <b>GO:0043024</b> [or]
+ribosome
+binding <b>GO:0043022 </b>[or] triplet codon-amino acid adaptor
+activity <b>GO:0030533</b></p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;"><!--[if !supportLists]-->9)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><!--[endif]-->chaperone-related activity= chaperone regulator
+activity <b>GO:0030188</b></p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;"><!--[if !supportLists]-->10)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;
+</span><!--[endif]-->nucleic acid binding activity= nucleic acid
+binding <b>GO:0003676</b></p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;"><!--[if !supportLists]-->11)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;
+</span><!--[endif]-->kinase activity= kinase activity <b>GO:0016301</b><br>
+</p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;">12)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;
+</span><!--[endif]-->unknown = <b>molecular_function unknown</b> <b>GO:0005554</b><br>
+</p>
+<p class="MsoNormal" style="text-indent: -0.25in; margin-left: 0.5in;">13)<span
+ style="font-family: &quot;Times New Roman&quot;; font-style: normal; font-variant: normal; font-weight: normal; font-size: 7pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">&nbsp;
+</span><!--[endif]-->other molecular function= molecular_function
+EXCLUDING (1-12) <span style="font-weight: bold;">GO:0003674</span></p>
+<blockquote></blockquote>
+</body>
+</html>
