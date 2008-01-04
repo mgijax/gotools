@@ -1,0 +1,32 @@
+#!/bin/sh
+
+#
+# Install
+#
+
+cd `dirname $0`
+
+. ./Configuration
+
+#
+# Create a symbolic link to the GO Tools data directory.
+#
+rm -f data; ln -s ${GOTOOLS_DATA} data
+
+#
+# Set all directory permissions.
+#
+find GO_TermFinder GoTermFinder_help_files  -type d -exec chmod 755 {} \;
+
+#
+# Set all file permissions based on the file type.
+#
+for i in cgi pm so
+do
+    find . -type f -name "*.${i}" -exec chmod 755 {} \;
+done
+
+for i in bs gif jpg mso pcz wmz html txt xml
+do
+    find . -type f -name "*.${i}" -exec chmod 644 {} \;
+done
