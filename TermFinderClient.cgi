@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl
+#!/usr/bin/perl
 
 #use strict;
 #use warnings;
@@ -12,6 +12,7 @@ use GO::OntologyProvider::OntologyParser;
 use Spreadsheet::WriteExcel;
 
     print header;
+
     print start_html('GO Term Finder Results');
     print "<PRE>";
 
@@ -122,7 +123,7 @@ use Spreadsheet::WriteExcel;
     close $file;
     }
 
-    my $ontology   = GO::OntologyProvider::OntologyParser->new(ontologyFile=>$ontologyFile);
+    $ontology   = GO::OntologyProvider::OntologyParser->new(ontologyFile=>$ontologyFile);
 
     my $annotation = GO::AnnotationProvider::AnnotationParser->new(annotationFile=>$annotationFile);
 

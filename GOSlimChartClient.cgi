@@ -1,11 +1,11 @@
-#!/usr/local/bin/perl
+#!/usr/bin/perl
 
 #use strict;
 #use warnings;
 use diagnostics;
 use CGI ':standard';
 
-use lib "GO_TermFinder/lib";
+use lib "lib";
 use GO::TermFinder;
 use GO::AnnotationProvider::AnnotationParser;
 use GO::OntologyProvider::OntologyParser;
@@ -140,7 +140,7 @@ use Set::Scalar;
 	my $full_gene_set = Set::Scalar->new;
 	$full_gene_set = Set::Scalar->new(@genes);
 
-    my $ontology   = GO::OntologyProvider::OntologyParser->new(ontologyFile=>$ontologyFile);
+    $ontology   = GO::OntologyProvider::OntologyParser->new(ontologyFile=>$ontologyFile);
 
     my $annotation = GO::AnnotationProvider::AnnotationParser->new(annotationFile=>$annotationFile);
 
