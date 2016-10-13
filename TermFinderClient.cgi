@@ -5,7 +5,7 @@
 use diagnostics;
 use CGI ':standard';
 
-use lib "GO_TermFinder/lib";
+use lib "lib";
 use GO::TermFinder;
 use GO::AnnotationProvider::AnnotationParser;
 use GO::OntologyProvider::OntologyParser;
